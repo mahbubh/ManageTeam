@@ -1,0 +1,23 @@
+<form #tobaccoUseForm="ngForm">
+  <div>
+    <h3>{{labels.displayName}}</h3>
+    <input name = "displayname" type = "text" [(ngModel)] = "displayNameNg" required #name = "ngModel">
+    <p style = "color:red" *ngIf="name.errors?.required && (name.dirty || name.touched)">Value Required</p>
+    <h3>{{labels.unit}}</h3>
+    <select name = "unit" [(ngModel)] = "unitNg" (change) = "changeUnit()">
+        <option *ngFor = "let unit of unitArr" value = "{{unit}}">{{unit}}</option>
+    </select>
+    <!-- <input type = "text" [(ngModel)] = "unitNg"> -->
+    <h3>{{labels.position}}</h3>
+    <select name = "position" [(ngModel)] = "positionNg" id = "position" (change) = "changePosition()">
+      <option *ngFor = "let pos of posArray" value = "{{pos.position}}">{{pos.position}}</option>
+    </select>
+    <h3>{{labels.depthOrder}}</h3>
+    <input name = "depth" type = "text" [(ngModel)] = "depthOrderNg" #depth = "ngModel" required>
+    <p style = "color:red" *ngIf="depth.errors?.required && (depth.dirty || depth.touched)">Value Required</p>
+    </div>
+</form>
+<div>
+  <button (click) = "cancel()">Cancel</button>
+  <button (click) = "save(tobaccoUseForm)">Save</button>
+</div>

@@ -1,0 +1,15 @@
+<button (click) = "teamview()">Back to Team View</button>
+<br>
+
+<div *ngFor = "let roster of teamData.roster | SortPipe:  {depth: 'depthOrder', posABR: 'positionAbbr', pobObj: positionRule}">
+  <div style = "border-style: outset;margin-top:1rem;margin-bottom:1rem;cursor: pointer;" (click) = "editPlayer(roster)">
+    <h3>{{labels.displayName}}</h3>
+    <label>{{roster.person.displayName}}</label>
+    <h3>{{labels.unit}}</h3>
+    <label>{{roster.unit}}</label>
+    <h3>{{labels.position}}</h3>
+    <label>{{roster.position}}</label>
+    <h3>{{labels.depthOrder}}</h3>
+    <label>{{roster.depthOrder}}</label>
+  </div>
+</div>

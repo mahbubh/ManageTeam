@@ -1,0 +1,12 @@
+<div style = "border-style: outset;margin-top:1rem;margin-bottom:1rem" *ngFor = "let teamData of jsonTeamData.teams; let i = index">
+  <div style = "cursor:pointer" (click) = "rosterView(teamData)">
+    <h2>{{labels.teamNameHeader}}</h2>
+    <label>{{teamData.fullName}}</label>
+    <h2>{{labels.teamNickNameHeader}}</h2>
+    <label>{{teamData.nickName}}</label>
+    <h2>{{labels.teamPlayerCountHeader}}</h2>
+    <label>{{teamData.roster.length}}</label>
+    <br>
+    <br>
+  </div>
+</div>
